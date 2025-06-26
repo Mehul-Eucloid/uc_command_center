@@ -41,9 +41,9 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
-} from "./components/ui/dialog";
-import { getTables, createTable, deleteTable, getSchemas, createSchema, deleteSchema, getWorkspaceStats, grantPrivileges, revokePrivileges } from "./services/api";
-import { getAvatarInitials, getAvatarColor } from "./components/ui/avatar";
+} from "./components/ui/dialog.js";
+import { getTables, createTable, deleteTable, getSchemas, createSchema, deleteSchema, getWorkspaceStats, grantPrivileges, revokePrivileges } from "./services/api.js";
+import { getAvatarInitials, getAvatarColor } from "./components/ui/avatar.js";
 import {
   FaRobot,
   FaTimes,

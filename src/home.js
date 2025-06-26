@@ -29,7 +29,7 @@ import {
   SelectValue
 } from "./components/ui/select.js";
 import { Bell, Search, Settings, LogOut, Send } from "lucide-react";
-import Dashboard from "./Dashboard";
+import Dashboard from "./Dashboard.js";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "./components/ui/dialog.js";
 import {
   createUser,

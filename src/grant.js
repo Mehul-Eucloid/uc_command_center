@@ -6,7 +6,7 @@ import eucloidLogo from "./components/ui/eucloid.png";
 import { Button } from "./components/ui/button";
 import { Card, CardContent } from "./components/ui/card";
 import { Input } from "./components/ui/input";
-import { grantPrivileges, revokePrivileges, getCurrentPrivileges, addUserToGroup, getWorkspaceStats, getUsers, getGroups, getCatalogs, getSchemas, getTables, createCatalog, createUser, createGroup, createSchema } from "./services/api";
+import { grantPrivileges, revokePrivileges, getCurrentPrivileges, addUserToGroup, getWorkspaceStats, getUsers, getGroups, getCatalogs, getSchemas, getTables, createCatalog, createUser, createGroup, createSchema } from "./services/api.js";
 import { Info, Bell, Settings } from "lucide-react";
 import { toast } from 'react-toastify';
 import { motion, AnimatePresence } from "framer-motion";
@@ -26,15 +26,15 @@ import {
   TableHead,
   TableHeader,
   TableRow
-} from "./components/ui/table";
+} from "./components/ui/table.js";
 import {
   Select,
   SelectItem,
   SelectContent,
   SelectTrigger,
   SelectValue
-} from "./components/ui/select";
-import { Checkbox } from "./components/ui/checkbox";
+} from "./components/ui/select.js";
+import { Checkbox } from "./components/ui/checkbox.js";
 import { Search, ArrowLeft, LogOut, ShieldCheck, ShieldOff } from "lucide-react";
 import FuzzySet from 'fuzzyset.js';
 import { FaTrash } from "react-icons/fa";
