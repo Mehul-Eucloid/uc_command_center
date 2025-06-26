@@ -32,12 +32,7 @@ const upload = multer({
 import crypto from 'crypto';
 
 // API instance
-const api = axios.create({
-  baseURL: 'http://13.126.41.254:5000/api',
-  headers: {
-    'Content-Type': 'application/json'
-  }
-});
+
 const sessionStore = new Map();
 // OTP storage
 const otpStore = new Map();
