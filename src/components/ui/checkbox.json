@@ -1,0 +1,22 @@
+[
+  {
+    "value": "admin",
+    "label": "Administrator",
+    "description": "Admins can manage users and teams, and have full access to all features and settings.",
+    "permissions": ["Manage users", "Manage settings", "Full access"]
+  },
+  {
+    "value": "manager",
+    "label": "Manager",
+    "description": "Managers can oversee team performance and manage day-to-day operations.",
+    "permissions": ["Manage teams", "View reports", "Limited settings access"]
+  },
+  {
+    "value": "team_member",
+    "label": "Team Member",
+    "description": "Team members have access to basic features to perform their tasks.",
+    "permissions": ["View tasks", "Submit reports"]
+  }
+]
+
+ 
