@@ -298,13 +298,13 @@ async function getRecentJobs() {
 }
 // Middleware setup
 app.use(cors({
-  origin: 'http://13.126.41.254:5001',
+  origin: 'http://13.126.41.254:5000',
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
 }));
 app.use(cors({
-  origin: 'http://13.126.41.254:5001',
+  origin: 'http://13.126.41.254:5000',
   credentials: true
 }));
 app.use(express.json());
@@ -1461,17 +1461,17 @@ app.get('/api/oauth/callback', async (req, res) => {
 
   if (error) {
     console.error('OAuth error:', error, error_description);
-    return res.redirect(`http://13.126.41.254:5001/login?error=${encodeURIComponent(error_description || error)}`);
+    return res.redirect(`http://13.126.41.254:5000/login?error=${encodeURIComponent(error_description || error)}`);
   }
 
   if (!code || !state) {
     console.error('Missing code or state:', { code, state });
-    return res.redirect(`http://13.126.41.254:5001/login?error=${encodeURIComponent('Missing code or state parameter')}`);
+    return res.redirect(`http://13.126.41.254:5000/login?error=${encodeURIComponent('Missing code or state parameter')}`);
   }
 
   const sessionData = sessionStore.get(state);
   if (!sessionData) {
-    return res.redirect(`http://13.126.41.254:5001/login?error=${encodeURIComponent('Invalid state parameter')}`);
+    return res.redirect(`http://13.126.41.254:5000/login?error=${encodeURIComponent('Invalid state parameter')}`);
   }
 
   const { workspace } = sessionData;
@@ -1515,10 +1515,10 @@ app.get('/api/oauth/callback', async (req, res) => {
       tokenExpiresAt
     });
 
-    res.redirect(`http://13.126.41.254:5001/login?token=${sessionToken}`);
+    res.redirect(`http://13.126.41.254:5000/login?token=${sessionToken}`);
   } catch (err) {
     console.error('Error in OAuth callback:', err.response?.data || err.message);
-    res.redirect(`http://13.126.41.254:5001/login?error=${encodeURIComponent('Failed to authenticate with Databricks')}`);
+    res.redirect(`http://13.126.41.254:5000/login?error=${encodeURIComponent('Failed to authenticate with Databricks')}`);
   }
 });
 
