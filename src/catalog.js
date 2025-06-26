@@ -8,7 +8,7 @@ import { Input } from "./components/ui/input.js";
 import { getAvatarInitials, getAvatarColor } from './components/ui/avatar.js';
 import { Checkbox } from "./components/ui/checkbox.js";
 import { Folder, Info, Send } from "lucide-react";
-import { CatalogStatsModal } from "./CatalogStatsModal";
+import { CatalogStatsModal } from "./CatalogStatsModal.js";
 import { 
   Table, 
   TableBody, 

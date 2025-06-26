@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "./components/ui/tabs";
+
 import { useNavigate } from "react-router-dom";
 import { getAvatarInitials, getAvatarColor } from './components/ui/avatar.js';
 import eucloidLogo from "./components/ui/eucloid.png";
-import { Button } from "./components/ui/button";
-import { Card, CardContent } from "./components/ui/card";
-import { Input } from "./components/ui/input";
+import { Button } from "./components/ui/button.js";
+import { Card, CardContent } from "./components/ui/card.js";
+import { Input } from "./components/ui/input.js";
 import { grantPrivileges, revokePrivileges, getCurrentPrivileges, addUserToGroup, getWorkspaceStats, getUsers, getGroups, getCatalogs, getSchemas, getTables, createCatalog, createUser, createGroup, createSchema } from "./services/api.js";
 import { Info, Bell, Settings } from "lucide-react";
 import { toast } from 'react-toastify';
