@@ -33,7 +33,7 @@ import crypto from 'crypto';
 
 // API instance
 const api = axios.create({
-  baseURL: 'http://localhost:5000/api',
+  baseURL: 'http://13.126.41.254:5000/api',
   headers: {
     'Content-Type': 'application/json'
   }
@@ -52,7 +52,7 @@ const cache = {
 const DATABRICKS_HOST = process.env.DATABRICKS_HOST || 'https://dbc-6e076fbc-a34a.cloud.databricks.com';
 const CLIENT_ID = process.env.DATABRICKS_CLIENT_ID || 'a337cd27-bb20-4c9c-8c70-23314a4880b2';
 const CLIENT_SECRET = process.env.DATABRICKS_CLIENT_SECRET || 'dose9f45a9d34e82f089076dd43550658523';
-const REDIRECT_URI = 'http://localhost:5000/api/oauth/callback';
+const REDIRECT_URI = 'http://13.126.41.254:5000/api/oauth/callback';
 const SCOPES = 'offline_access'; // Adjust scopes as needed for SCIM access
 const AUTH_URL = 'https://accounts.cloud.databricks.com/oidc/v1/authorize';
 const TOKEN_URL = 'https://accounts.cloud.databricks.com/oidc/v1/token';
@@ -298,13 +298,13 @@ async function getRecentJobs() {
 }
 // Middleware setup
 app.use(cors({
-  origin: 'http://localhost:5001',
+  origin: 'http://13.126.41.254:5001',
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
 }));
 app.use(cors({
-  origin: 'http://localhost:5001',
+  origin: 'http://13.126.41.254:5001',
   credentials: true
 }));
 app.use(express.json());
@@ -1461,17 +1461,17 @@ app.get('/api/oauth/callback', async (req, res) => {
 
   if (error) {
     console.error('OAuth error:', error, error_description);
-    return res.redirect(`http://localhost:5001/login?error=${encodeURIComponent(error_description || error)}`);
+    return res.redirect(`http://13.126.41.254:5001/login?error=${encodeURIComponent(error_description || error)}`);
   }
 
   if (!code || !state) {
     console.error('Missing code or state:', { code, state });
-    return res.redirect(`http://localhost:5001/login?error=${encodeURIComponent('Missing code or state parameter')}`);
+    return res.redirect(`http://13.126.41.254:5001/login?error=${encodeURIComponent('Missing code or state parameter')}`);
   }
 
   const sessionData = sessionStore.get(state);
   if (!sessionData) {
-    return res.redirect(`http://localhost:5001/login?error=${encodeURIComponent('Invalid state parameter')}`);
+    return res.redirect(`http://13.126.41.254:5001/login?error=${encodeURIComponent('Invalid state parameter')}`);
   }
 
   const { workspace } = sessionData;
@@ -1515,10 +1515,10 @@ app.get('/api/oauth/callback', async (req, res) => {
       tokenExpiresAt
     });
 
-    res.redirect(`http://localhost:5001/login?token=${sessionToken}`);
+    res.redirect(`http://13.126.41.254:5001/login?token=${sessionToken}`);
   } catch (err) {
     console.error('Error in OAuth callback:', err.response?.data || err.message);
-    res.redirect(`http://localhost:5001/login?error=${encodeURIComponent('Failed to authenticate with Databricks')}`);
+    res.redirect(`http://13.126.41.254:5001/login?error=${encodeURIComponent('Failed to authenticate with Databricks')}`);
   }
 });
 
@@ -3540,5 +3540,5 @@ app.use((req, res) => {
 
 // Start the server
 app.listen(PORT, () => {
-  console.log(`✅ Server running on http://localhost:${PORT}`);
+  console.log(`✅ Server running on http://13.126.41.254:${PORT}`);
 });
